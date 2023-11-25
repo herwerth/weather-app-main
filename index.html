@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Időjárás</title>
+    <!------------------------ Favicon ------------------------------------------------------->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./favicon/favicon-16x16.png"
+    />
+    <!------------------------ Google fonts ------------------------------------------------------->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!------------------------ Bootstrap Icons ------------------------------------------------------->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!------------------------ navbar ------------------------------------------------------->
+    <header>
+      <nav id="navbar" class="navbar">
+        <div class="js-navbar-text navbar-text"><p>Időjárás</p></div>
+        <ul class="js-nav-menu-list nav-menu-list invisible">
+          <li><a href="#search">Keresés</a></li>
+          <li><a href="#current-weather">Aktuális</a></li>
+          <li><a href="#forecast">Előrejelzés</a></li>
+          <li><a href="#hourly-forecast">Óránként</a></li>
+        </ul>
+        <div class="js-hamburger-menu-button hamburger-menu-button">
+          <i class="bi bi-list"></i>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <!------------------------ Search ------------------------------------------------------->
+      <section class="section-search">
+        <form id="search" action="#" class="js-city-form city-form">
+          <label class="city-label">
+            Város:
+            <input
+              type="text"
+              name="city"
+              placeholder="Ide írd a keresett várost!"
+              class="form-input"
+            />
+          </label>
+          <button class="js-submit submit btn btn-primary" type="submit">
+            Keresés
+          </button>
+        </form>
+      </section>
+      <!------------------------ Search Resutls ------------------------------------------------------->
+      <section class="section-result">
+        <div class="div-result">
+          <h2 class="js-location-name location-name"></h2>
+          <button
+            class="js-save-city-b save-city-b btn btn-primary"
+            type="button"
+          >
+            Mentés
+          </button>
+        </div>
+        <section class="js-saved-cities saved-cities">
+          <p>Elmentett városok</p>
+          <div class="js-saved-cities-div saved-cities-div"></div>
+        </section>
+      </section>
+      <!------------------------ Error and Warning sections ------------------------------------------------------->
+      <section class="js-error error"></section>
+      <section class="js-warning warning"></section>
+      <!------------------------ Current Weather ------------------------------------------------------->
+      <section
+        id="current-weather"
+        class="js-city-weather city-weather"
+      ></section>
+      <!------------------------ 1 day or 3 days forecast ------------------------------------------------------->
+      <section id="forecast" class="js-forecast-section forecast-section">
+        <h3 class="forecast-section-heading">Előrejelzés</h3>
+        <div class="js-forecast-div forecast-div">
+          <div class="js-today-div today-div"></div>
+          <div class="js-tomorrow-div tomorrow-div invisible"></div>
+          <div
+            class="js-day-after-tomorrow-div day-after-tomorrow-div invisible"
+          ></div>
+        </div>
+        <div class="forecast-button-div">
+          <button
+            class="js-three-days-forecast-button three-days-forecast-button btn btn-primary"
+            type="button"
+          >
+            3 napos előrejelzés
+          </button>
+        </div>
+      </section>
+      <!------------------------ Hourly forecast Pagination ------------------------------------------------------->
+      <section
+        id="hourly-forecast"
+        class="js-hourly-forecast-section hourly-forecast-section"
+      >
+        <div class="hourly-forecast-heading-div">
+          <h3 class="hourly-forecast-heading">Óránkénti előrejelzés</h3>
+          <div class="pagination">
+            <p><</p>
+            <p class="active" data-page="1">1</p>
+            <p data-page="2">2</p>
+            <p data-page="3">3</p>
+            <p data-page="4">4</p>
+            <p data-page="5">5</p>
+            <p data-page="6">6</p>
+            <p>></p>
+          </div>
+        </div>
+        <div class="js-hourly-forecast-div hourly-forecast-div">
+          <div class="js-hourly-today-div hourly-today-div"></div>
+        </div>
+      </section>
+    </main>
+    <!------------------------ Footer ------------------------------------------------------->
+    <footer>
+      
+      
+      <a
+        href="https://www.weatherapi.com/"
+        title="Free Weather API"
+        target="_blank"
+        ><img
+          src="//cdn.weatherapi.com/v4/images/weatherapi_logo.png"
+          alt="Weather data by WeatherAPI.com"
+      /></a>
+      <a href="#search"><i class="bi bi-arrow-up nav-top"></i></a>
+    </footer>
+    <script src="./main.js"></script>
+  </body>
+</html>

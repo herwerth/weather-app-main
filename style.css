@@ -1,0 +1,558 @@
+/* ------------- Colors --------------------------------------*/
+:root {
+  --main-red: #ef476f;
+  --main-yellow: #ffd166;
+  --main-blue: #118ab2;
+  --main-grey: #073b4c;
+  --main-white: ghostwhite;
+  --light-grey: #55595c;
+  --very-light-grey: #ced4da;
+  --very-light-grey-2: #f7f7f9;
+  --light-grey-2: #c6c6c6;
+}
+
+/* -------------- Reset --------------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 10px;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+  background-color: var(--very-light-grey);
+  padding-top: 5.8rem;
+  scroll-padding-top: 11.5rem;
+}
+
+h1 {
+  font-size: 5.6rem;
+}
+
+h2 {
+  font-size: 3.3rem;
+}
+
+h3 {
+  font-size: 2.6rem;
+}
+
+p,
+a {
+  font-size: 2rem;
+}
+/* -------------- Buttons ------------------------------------------------*/
+.btn {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  padding: 0.5rem 1.6rem;
+  margin: 0;
+  font-weight: bold;
+  border: 0;
+  text-align: center;
+  transition: transform 100ms;
+}
+
+.btn-primary {
+  background-color: var(--main-grey);
+  color: var(--main-white);
+}
+
+.btn-primary:hover {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.btn-primary:active {
+  background-color: var(--main-blue);
+}
+/* -------------- Icons ------------------------------------------------*/
+.bi-github {
+  font-size: 2rem;
+  padding: 0.2rem 0.4rem;
+}
+
+.bi-x {
+  font-size: 2rem;
+}
+
+.nav-top {
+  position: fixed;
+  bottom: 1rem;
+  right: 1.5rem;
+  font-size: 3rem;
+  background-color: var(--main-grey);
+  color: var(--main-white);
+}
+
+.nav-top:active {
+  background-color: var(--main-blue);
+}
+
+.bi-sunrise,
+.bi-sunset {
+  font-size: 2rem;
+  line-height: 2rem;
+}
+
+.bi-list {
+  font-size: 4rem;
+}
+/* -------------- Keyframes ------------------------------------------------*/
+@keyframes rotate {
+  10% {
+    transform: rotate(12deg);
+  }
+  30%,
+  70% {
+    transform: rotate(-15deg);
+  }
+  50%,
+  85% {
+    transform: rotate(35deg);
+  }
+}
+
+@keyframes scale {
+  10% {
+    transform: scale(1.1, 1.1);
+  }
+  30%,
+  70% {
+    transform: scale(1.2, 1.2);
+  }
+  50%,
+  85% {
+    transform: scale(1.1, 1.1);
+  }
+}
+/* -------------- Navbar ------------------------------------------------*/
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--main-yellow);
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  z-index: 1;
+  /* it vas 0 because of the hamburger menu but it is 1 because of using container-type: inline-size;  */
+}
+
+.navbar-text p {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.nav-menu-list {
+  background-color: var(--main-grey);
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  align-items: center;
+  position: absolute;
+  width: 100vw;
+  top: 9rem;
+  left: 0;
+  z-index: -1;
+}
+
+.navbar a {
+  padding: 0 2rem 0;
+  text-decoration: none;
+  color: var(--main-white);
+  font-weight: 700;
+  font-size: 3rem;
+  position: relative;
+}
+
+.navbar a:hover {
+  cursor: pointer;
+  color: var(--main-yellow);
+}
+
+.hamburger-menu-button:hover {
+  cursor: pointer;
+  animation-name: rotate;
+  animation-duration: 500ms;
+}
+/* -------------- Cards ------------------------------------------------*/
+
+.city-form,
+.city-weather,
+.section-result,
+.forecast-section,
+.hourly-forecast-section {
+  background-color: var(--main-yellow);
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 1.6rem 1.6rem;
+  border: 10px solid var(--main-blue);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.section-search,
+.city-weather,
+.forecast-section,
+.hourly-forecast-section {
+  margin-bottom: 2rem;
+}
+/*--------------- Search --------------------------------------------------*/
+
+.city-label {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.6rem;
+  color: var(--light-grey);
+  font-weight: bold;
+  margin: 0.2rem 0 0.8rem;
+}
+
+.form-input {
+  padding: 1.2rem 1.2rem;
+  font-size: 1.6rem;
+  color: var(--light-grey);
+  font-weight: 400;
+  outline: none;
+  border: 0 solid var(--main-blue);
+  background-color: var(--very-light-grey-2);
+  transition: border-color 0.15s, ease-in-out 0.15s, box-shadow 0.15s;
+}
+
+.form-input:focus {
+  outline: 0.4rem solid var(--main-blue);
+}
+/*--------------- Result --------------------------------------------------*/
+.section-result {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.6rem;
+}
+
+.div-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  container-type: inline-size; /* to use container query units */
+}
+
+.location-name {
+  font-size: clamp(
+    2rem,
+    19cqi,
+    3.3rem
+  ); /* font size is adapted to the parent container */
+}
+
+.saved-cities {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0rem;
+}
+
+.saved-cities p,
+.time-p,
+.next-hours-p {
+  font-weight: 700;
+  margin-top: 1.6rem;
+}
+
+.saved-cities-div {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.saved-city-button:hover {
+  animation-name: scale;
+  animation-duration: 500ms;
+}
+/*--------------- Error - Warning --------------------------------------------------*/
+.error,
+.warning {
+  margin: 2rem auto;
+  max-width: 80rem;
+  background-color: var(--main-yellow);
+  color: var(--main-red);
+  font-weight: 700;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  cursor: pointer;
+}
+
+.error p,
+.warning p {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.6rem;
+  border: 10px solid var(--main-blue);
+}
+/*--------------- Current Weather --------------------------------------------------*/
+.current-weather-div {
+  text-align: center;
+}
+
+.basic-weather-data {
+  container-type: inline-size; /* to use container query units */
+}
+
+.current-temp {
+  display: inline-block;
+  text-align: center;
+  font-size: clamp(
+    2.6rem,
+    19cqi,
+    5.6rem
+  ); /* font size is adapted to the parent container */
+}
+
+.weather-conditions-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.weather-details-button-div {
+  display: flex;
+  justify-content: center;
+}
+/*--------------- Forecast --------------------------------------------------*/
+.forecast-section {
+  container-type: inline-size; /* to use container query units */
+}
+
+.forecast-section-heading {
+  text-align: center;
+  font-size: clamp(
+    1.6rem,
+    19cqi,
+    2.6rem
+  ); /* font size is adapted to the parent container */
+}
+.forecast-div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.forecast-div div {
+  margin: 1.6rem;
+}
+
+.forecast-div div :first-child {
+  font-weight: 700;
+}
+
+.forecast-button-div {
+  display: flex;
+  justify-content: center;
+}
+
+.max-temp {
+  color: var(--main-red);
+}
+
+.min-temp {
+  color: var(--main-blue);
+}
+/*--------------- Hourly Forecast --------------------------------------------------*/
+.hourly-forecast-section {
+  text-align: center;
+}
+.hourly-forecast-heading-div {
+  container-type: inline-size; /* to use container query units */
+}
+
+.hourly-forecast-heading {
+  font-size: clamp(1.6rem, 19cqi, 2.6rem);
+  /* font size is adapted to the parent container */
+}
+
+.twenty-four-hours-forecast-button {
+  font-size: clamp(0.5rem, 19cqi, 1.6rem);
+  /* font size is adapted to the parent container */
+}
+
+.hourly-today-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 1rem;
+  min-height: 35rem;
+}
+
+.section-one-hour-forecast-heading-div {
+  container-type: inline-size; /* to use container query units */
+}
+
+.section-one-hour-forecast-heading {
+  font-size: clamp(2.4rem, 19cqi, 3.3rem);
+}
+
+.hourly-forecast-div {
+  text-align: left;
+}
+
+.hourly-forecast-div p {
+  font-size: 1.6rem;
+}
+
+.hourly-cond-text {
+  max-width: 16rem;
+}
+
+/*--------------- Pagination --------------------------------------------------*/
+.pagination {
+  display: inline-block;
+}
+
+.pagination p {
+  font-weight: 700;
+  color: black;
+  float: left;
+  padding: 0.8rem 1.4rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.pagination p.active {
+  background-color: var(--main-grey);
+  color: var(--main-white);
+}
+
+.pagination p:hover:not(.active) {
+  background-color: var(--main-blue);
+}
+/*--------------- Footer --------------------------------------------------*/
+
+footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  font-weight: bold;
+  gap: 2rem;
+  border: 0;
+  background-color: var(--main-yellow);
+  padding: 1.6rem 1.6rem;
+}
+/* -------------- To Hide Something ------------------------------------------------*/
+.invisible {
+  display: none;
+}
+/* -------------- Breakpoints ------------------------------------------------*/
+@media (min-width: 576px) {
+  /*--------------- Result --------------------------------------------------*/
+  .section-result {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .div-result {
+    margin: 0;
+  }
+
+  .location-name {
+    font-size: 3.3rem;
+  }
+  /*--------------- Current Weather --------------------------------------------------*/
+  .current-weather-div {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .current-temp {
+    font-size: 5.6rem; /* because of the container query units */
+  }
+
+  .weather-conditions-div {
+    flex-direction: row;
+    gap: 2rem;
+  }
+  /*--------------- Forecast --------------------------------------------------*/
+  .forecast-div {
+    display: flex;
+    justify-content: space-around;
+  }
+  /*--------------- Hourly Forecast --------------------------------------------------*/
+  .hourly-today-div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  html,
+  body {
+    padding-top: 4.8rem;
+    scroll-padding-top: 9.5rem;
+  }
+  /* -------------- Navbar ------------------------------------------------*/
+  .hamburger-menu-button {
+    display: none;
+  }
+
+  .nav-menu-list {
+    max-width: 80vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 2.5rem;
+    position: static;
+    background-color: var(--main-yellow);
+  }
+
+  .navbar a {
+    font-size: 2.5rem;
+    color: var(--main-grey);
+  }
+
+  .navbar a:hover {
+    color: var(--main-blue);
+  }
+}
+
+@media (min-width: 992px) {
+  html,
+  body {
+    padding-top: 5.8rem;
+    scroll-padding-top: 11.5rem;
+  }
+  /* -------------- Navbar ------------------------------------------------*/
+  .navbar {
+    padding: 2rem 4rem;
+  }
+  .nav-menu-list {
+    gap: 4rem;
+  }
+
+  .navbar-text p {
+    font-size: 4rem;
+  }
+
+  .navbar a {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 1200px) {
+  /* -------------- Navbar ------------------------------------------------*/
+  .navbar {
+    padding: 2rem 6rem;
+  }
+  .nav-menu-list {
+    gap: 6rem;
+  }
+}
